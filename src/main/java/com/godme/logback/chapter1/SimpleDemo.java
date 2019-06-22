@@ -17,7 +17,7 @@ public class SimpleDemo {
             log.debug("msg : {}", "message");
         }
 
-       LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
-        StatusPrinter.print(lc);
+//       LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
+//        StatusPrinter.print(lc);
     }
 }

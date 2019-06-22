@@ -93,34 +93,7 @@ public class SimpleDemo {
 
 同时，子类的权限是不允许高于父类的权限的。
 
-# 消耗
-```java
-       if(log.isDebugEnabled()){
-           log.debug("msg : {}", "message");
-       }
-```
-当然，``logback``会自动的进行权限校验，但是可能到权限外的操作，还是进行一下判断。
+# 格式化
 
-尤其是字符串拼接的话，推荐是用格式化的``{}``，仅有执行的时候才会去填充，避免了没有权限时，还不得不进行的拼接操作。
 
-# 状态
 
-```java
-       LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
-       StatusPrinter.print(lc);
-```
-
-```text
-19:20:37,376 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
-19:20:37,376 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.groovy]
-19:20:37,376 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.xml]
-19:20:37,379 |-INFO in ch.qos.logback.classic.BasicConfigurator@1b8d17c - Setting up default configuration.
-```
-可以简单的看到，原来是可以加载配置的
-- ``logback-test.xml``
-- ``logback.groovy``
-- ``logback.xml``
-
-不过我们都没有，最后默认配置了。关于配置，后面学习。
-
-重要的是，``log``的加载详情，可以在运行期进行打印。
